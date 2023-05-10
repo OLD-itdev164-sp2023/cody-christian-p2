@@ -6,8 +6,11 @@
  */
 
 import * as React from "react"
+import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from "gatsby"
+import styled, { ThemeProvider } from 'styled-components'
 
+import { TigeraPurple } from "./themes/TigeraPurple"
 import Header from "./header"
 import "./layout.css"
 
@@ -23,28 +26,21 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: `var(--size-content)`,
-          padding: `var(--size-gutter)`,
-        }}
-      >
+    <ThemeProvider theme={TigeraPurple}>
+      <Header siteTitle={data.site.siteMetaData.title || `Title`} />
+      <Content>
         <main>{children}</main>
         <footer
-          style={{
-            marginTop: `var(--space-5)`,
-            fontSize: `var(--font-sm)`,
-          }}
+        style={{
+          marginTop: `var(--space-5)`,
+          fontSize: `var(--font-sm)`,
+        }}
         >
-          © {new Date().getFullYear()} &middot; Built with
-          {` `}
+          {new Date().getFullYear()} &middot; Built with{' '}
           <a href="https://www.gatsbyjs.com">Gatsby</a>
         </footer>
-      </div>
-    </>
+      </Content>
+    </ThemeProvider>
   )
 }
 

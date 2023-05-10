@@ -7,14 +7,14 @@ import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
 
 
-//const IndexPage = ({ data }) => (
+const IndexPage = ({ data }) => (
   <Layout>
     <Seo title="Home" />
     <ul className={styles.list}>
      <h1>Tigera - MKE Alternative</h1>
     </ul>
   </Layout>
-//)
+)
 
 /**
  * Head export to define metadata for the page

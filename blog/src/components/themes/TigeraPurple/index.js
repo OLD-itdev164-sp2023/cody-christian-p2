@@ -1,0 +1,1 @@
+export { TigeraPurple } from './TigeraPurple'
