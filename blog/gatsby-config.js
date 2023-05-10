@@ -1,3 +1,6 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
+})
 /**
  * Configure your Gatsby site with this file.
  *
@@ -30,6 +33,11 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      spaceId: `${process.env.SPACE_ID}`,
+      accessToken: `${process.env.ACCESS_TOKEN}`
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

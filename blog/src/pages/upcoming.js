@@ -7,7 +7,7 @@ import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
 
 
-const IndexPage = ({ data }) => (
+const Upcoming = ({ data }) => (
   <Layout>
     <Seo title="Home" />
     <ul className={styles.list}>
@@ -37,7 +37,7 @@ const IndexPage = ({ data }) => (
  */
 export const Head = () => <Seo title="Home" />
 
-export default IndexPage
+export default Upcoming
 
 export const query = graphql`
       {
@@ -64,3 +64,4 @@ export const query = graphql`
         }
       }
 `
+
