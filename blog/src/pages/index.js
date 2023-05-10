@@ -7,28 +7,14 @@ import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
 
 
-const IndexPage = ({ data }) => (
+//const IndexPage = ({ data }) => (
   <Layout>
     <Seo title="Home" />
     <ul className={styles.list}>
-      {
-      data.allContenfulBlogPost.edges.map(edge => (
-        <li key={edge.node.id}>
-          <Link to={edge.node.slug}>{edge.node.title}</Link>     
-        <div>
-          <GatsbyImage
-            image={edge.node.heroImage.gatsbyImageData}
-            />
-        </div>
-        <div>
-          {edge.node.description.childMarkdownRemark.excerpt}
-        </div>
-        </li>
-      ))
-      }
+     <h1>Tigera - MKE Alternative</h1>
     </ul>
   </Layout>
-)
+//)
 
 /**
  * Head export to define metadata for the page
@@ -44,14 +30,10 @@ export const query = graphql`
         allContentfulBlogPost {
           edges {
             node {
-              id
+              
               title
+              showDate
               slug
-              description {
-                childMarkdownRemark {
-                  excerpt
-                }
-              }
               heroImage {
                 gatsbyImageData(
                   layout: CONSTRAINED
@@ -59,6 +41,12 @@ export const query = graphql`
                   width: 300
                 )
               }
+              description {
+                childMarkdownRemark {
+                  excerpt
+                }
+              }
+              
             }
           }
         }

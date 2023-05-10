@@ -8,7 +8,6 @@ exports.createPages = async ({ graphql , actions }) => {
         allContentfulBlogPost {
           edges {
             node {
-              id
               slug
             }
           }
@@ -18,10 +17,10 @@ exports.createPages = async ({ graphql , actions }) => {
       if (result.errors) {
         reject(result.errors)
       }
-      result.data.allContentfulUpcoming.edges.forEach((edge) => {
+      result.data.allContentfulBlogPost.edges.forEach((edge) => {
         createPage({
           path: edge.node.slug,
-          component: require.resolve("./src/templates/upcoming.js"),
+          component: require.resolve("./src/templates/upcoming-shows.js"),
           context: {
             slug: edge.node.slug
           },
